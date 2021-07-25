@@ -1,0 +1,2 @@
+psychopy_version, python_version, pythonScipyVersion,pyglet_version, pygame_version, numpy_version, wx_version, window_refresh_time_avg_ms,begin_time, exp_dir, last_sys_reboot, system_platform, internet_access, total_exp_time
+2021.2.0,3.9.6,1.7.0,1.5.16,(no pygame),1.21.1,4.1.1 osx-cocoa (phoenix) wxWidgets 3.1.5,22.62307496611187,2021_07_22 17:59 (Year_Month_Day Hour:Min),/Users/i_67981492/anaconda3/envs/psypy3/bin,Jul 20 13:22,darwin 11.4 x86_64,True,75.29561567999917
