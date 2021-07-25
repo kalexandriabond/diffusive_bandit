@@ -16,18 +16,18 @@ warnings.simplefilter('ignore')
 current_time = datetime.datetime.today().strftime("%m%d%Y_%H%M%S")
 
 user_input_dict = {
-    "CoAx ID [####]": "",
-    "Session [##] (01-11)": "",
-    "Run [#] (01-02)": "",
+    "CoAx ID [#]": "",
+    "Session [##] (1-100)": "",
+    "Run [#] (1-2)": "",
 }
 sub_inf_dlg = gui.DlgFromDict(
     user_input_dict,
     title="Subject information",
     show=0,
     order=[
-        "CoAx ID [####]",
-        "Session [##] (01-11)",
-        "Run [#] (01-02)",
+        "CoAx ID [#]",
+        "Session [##] (1-100)",
+        "Run [#] (1-2)",
     ],
 )
 
@@ -48,9 +48,9 @@ run_info_directory = parent_directory + "/data/run_info_data/"
 # deterministic_exp_param_directory = os.getcwd() + '/experimental_parameters/deterministic_schedules/'
 
 sub_inf_dlg.show()
-subj_id = int(float(user_input_dict["CoAx ID [####]"]))
-session_n = int(float(user_input_dict["Session [##] (01-11)"]))
-run = int(float(user_input_dict["Run [#] (01-02)"]))
+subj_id = int(float(user_input_dict["CoAx ID [#]"]))
+session_n = int(float(user_input_dict["Session [##] (1-100)"]))
+run = int(float(user_input_dict["Run [#] (1-2)"]))
 
 
 subj_directory = data_directory + "sub-" + "{:02d}".format(subj_id) + "/"
@@ -68,6 +68,7 @@ for dir in directories:
 exp_param_file = (
     exp_param_directory
     + 'sub' + str(subj_id)
+    + '_ses' + str(session_n)
     + "_diffusive_bandit_"
     + "run"
     + str(run)
@@ -663,7 +664,7 @@ data_dict = {'trial': trial_list, 'subj_id': subj_id_list, 'run': run_list,
  'id_choice': identity_choice_list, 'stim_duration': stimulus_duration_list,
   'stim_onset': stim_onset_list, 'stim_offset': stim_offset_list,
    'abs_response_time': abs_response_time_list,
-    'reward_f': m_f_points, 'reward_m': reward_m}
+    'reward_f': reward_f, 'reward_m': reward_m}
 
 data = pd.DataFrame(data_dict)
 
