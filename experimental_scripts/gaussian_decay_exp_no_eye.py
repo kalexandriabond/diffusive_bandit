@@ -38,7 +38,7 @@ if testing !=  1 and testing != 0:
     sys.exit("Enter 0 or 1.")
 
 # parent_directory = '/Users/coax_lab/Desktop/diffusive_bandit'
-parent_directory = os.path.join(os.path.expanduser('~'), 'Documents/diffusive_bandit')
+parent_directory = os.path.join(os.path.expanduser('~'), 'Desktop/diffusive_bandit')
 
 image_directory = parent_directory + "/images/"
 exp_param_directory = parent_directory + "/experimental_parameters/reward_parameters/"
@@ -74,7 +74,7 @@ exp_param_file = (
     + str(run)
     + ".csv"
 )
-
+print("EXP PARAM" + exp_param_file)
 if not os.path.exists(exp_param_file):
     sys.exit("Experimental parameter file does not exist.")
 
@@ -595,6 +595,9 @@ while t < n_trials:
         value_accuracy_list[t] = (np.nan)
 
         point_value = np.nan
+
+    if point_value < 0:
+        fixation_point_reward_total.color = error_color
 
     if rt < rt_max and rt > rt_min:
         received_rewards.append(point_value)
